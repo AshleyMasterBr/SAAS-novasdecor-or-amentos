@@ -9,84 +9,96 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #000; color: #fff; line-height: 1.6; font-weight: 600; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #050505; color: #fff; line-height: 1.6; font-weight: 600; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
         :root {
-            --primary: #ffffff;
-            --bg-card: #111111;
+            --primary: #c5a059;
+            --bg-card: #121212;
             --accent: #25D366; 
         }
 
-        header { background: #000; padding: 20px 0; border-bottom: 3px solid var(--primary); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        header { background: #000; padding: 15px 0; border-bottom: 2px solid var(--primary); position: fixed; width: 100%; top: 0; z-index: 1000; }
         header .flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; font-size: 1.4rem; color: #fff; }
-        .logo img { max-height: 55px; width: auto; border-radius: 50%; border: 2px solid #fff; }
+        .logo { display: flex; align-items: center; gap: 15px; font-size: 1.3rem; color: #fff; }
+        .logo img { max-height: 50px; width: auto; border-radius: 50%; border: 2px solid var(--primary); }
 
         .btn-zap-header { 
-            background: var(--primary); color: #000; padding: 12px 25px; border-radius: 4px; 
-            text-decoration: none; font-weight: 800; font-size: 0.9rem; 
+            background: var(--primary); color: #000; padding: 10px 20px; border-radius: 4px; 
+            text-decoration: none; font-weight: 800; font-size: 0.85rem; 
             text-transform: uppercase; transition: 0.3s;
         }
 
         .hero { 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('fundo.jpg'); 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(5,5,5,1)), url('fundo.jpg'); 
             background-size: cover; background-position: center; 
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            padding: 140px 0 80px 0;
+            padding: 120px 0 60px 0;
         }
-        .hero h1 { font-size: 3rem; line-height: 1; margin-bottom: 10px; }
-        .hero h1 span { background: #fff; color: #000; padding: 0 10px; }
-        .hero p { font-size: 1.1rem; color: #aaa; margin-bottom: 40px; font-weight: 700; text-transform: uppercase; }
+        .hero h1 { font-size: 3rem; line-height: 1; margin-bottom: 10px; text-align: center; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1rem; color: #888; margin-bottom: 30px; font-weight: 700; text-transform: uppercase; text-align: center; letter-spacing: 2px; }
 
         .calculator-box {
-            background: var(--bg-card); padding: 40px; border-radius: 8px;
-            box-shadow: 0 0 40px rgba(255,255,255,0.1);
-            max-width: 600px; width: 100%; margin: 0 auto; border: 2px solid #222;
+            background: var(--bg-card); padding: 35px; border-radius: 12px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+            max-width: 580px; width: 100%; margin: 0 auto; border: 1px solid #222;
         }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 800; margin-bottom: 10px; font-size: 0.8rem; color: #fff; text-transform: uppercase; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 0.75rem; color: var(--primary); text-transform: uppercase; }
         .form-group input, .form-group select { 
-            width: 100%; padding: 14px; border: 2px solid #333; border-radius: 4px; 
-            font-size: 1rem; font-weight: 700; background: #000; color: #fff; outline: none;
+            width: 100%; padding: 14px; border: 1px solid #333; border-radius: 6px; 
+            font-size: 1rem; font-weight: 700; background: #000; color: #fff; outline: none; transition: 0.3s;
         }
-        .form-group input:focus { border-color: #fff; }
+        .form-group input:focus { border-color: var(--primary); }
         
-        .btn-calc { 
-            width: 100%; background: #fff; color: #000; 
-            border: none; padding: 20px; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; 
-            border-radius: 4px; cursor: pointer; transition: 0.3s;
+        .checkbox-container {
+            display: flex; align-items: center; gap: 12px; padding: 18px; 
+            background: #080808; border-radius: 6px; border: 1px solid #222; margin-bottom: 20px;
         }
-        .btn-calc:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .checkbox-container input { width: 22px; height: 22px; cursor: pointer; accent-color: var(--primary); }
+        .checkbox-container label { margin: 0; cursor: pointer; color: #fff !important; font-size: 0.85rem; }
+
+        .btn-calc { 
+            width: 100%; background: var(--primary); color: #000; 
+            border: none; padding: 20px; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; 
+            border-radius: 6px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-calc:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); }
+
+        .features { padding: 80px 0; text-align: center; background: #050505; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 50px; }
+        .feature-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .feature-item h3 { margin-bottom: 12px; font-size: 1.2rem; }
+        .feature-item p { font-size: 0.95rem; color: #666; font-weight: 600; padding: 0 15px; }
 
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98); z-index: 2000;
-            display: none; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.96); z-index: 2000;
+            display: none; justify-content: center; align-items: center; padding: 20px;
         }
         .modal-content {
-            background: var(--bg-card); padding: 40px; border-radius: 8px;
-            max-width: 500px; width: 95%; text-align: center; border: 3px solid #fff;
+            background: var(--bg-card); padding: 40px; border-radius: 12px;
+            max-width: 480px; width: 100%; text-align: center; border: 2px solid var(--primary);
         }
-        .price-display { background: #fff; padding: 25px; border-radius: 4px; margin: 25px 0; width: 100%; }
-        .total-value { font-size: 3rem; font-weight: 900; color: #000; word-break: break-all; line-height: 1; }
+        .price-display { background: #fff; padding: 25px; border-radius: 8px; margin: 25px 0; }
+        .total-value { font-size: 2.8rem; font-weight: 900; color: #000; word-wrap: break-word; line-height: 1; }
         
         .btn-action { 
-            display: flex; justify-content: center; align-items: center; gap: 12px;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
             width: 100%; background: var(--accent); color: white; 
-            padding: 22px; text-decoration: none; font-weight: 800; border-radius: 4px; 
-            font-size: 1.2rem; text-transform: uppercase;
+            padding: 20px; text-decoration: none; font-weight: 800; border-radius: 6px; 
+            font-size: 1.1rem; text-transform: uppercase;
         }
 
-        footer { background: #000; padding: 60px 0; border-top: 2px solid #111; text-align: center; }
-        .footer-text { font-size: 0.8rem; color: #444; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+        footer { background: #000; padding: 50px 0; border-top: 1px solid #151515; text-align: center; }
+        .footer-text { font-size: 0.75rem; color: #333; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .hero h1 { font-size: 2.2rem; }
             .total-value { font-size: 2.2rem; }
             .calculator-box { padding: 25px; }
-            .modal-content { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -96,9 +108,9 @@
         <div class="container flex">
             <div class="logo">
                 <img src="logo.png" alt="Novas Dècor"> 
-                <div style="font-weight: 900;">NOVAS <span style="color: #666;">DÈCOR</span></div>
+                <div style="font-weight: 900;">NOVAS <span style="color: var(--primary);">DÈCOR</span></div>
             </div>
-            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header">Atendimento</a>
+            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header">Falar com Especialista</a>
         </div>
     </header>
 
@@ -124,7 +136,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Modelo de Piso</label>
+                    <label>Nivelamento</label>
+                    <select id="nivelamento">
+                        <option value="Nivelado">Está Nivelado</option>
+                        <option value="Precisa Nivelar">Precisa Nivelar</option>
+                        <option value="Não sei dizer">Não sei dizer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Modelo de Piso Desejado</label>
                     <select id="modelo">
                         <option value="98.90">Laminado Click Eucafloor (R$ 98,90/m²)</option>
                         <option value="109.90">Vinílico Absolut Residencial (R$ 109,90/m²)</option>
@@ -132,30 +153,61 @@
                     </select>
                 </div>
 
-                <div class="form-group" style="display:flex; align-items:center; gap:12px; padding: 15px; background: #0a0a0a; border-radius: 4px; border: 1px solid #333;">
-                    <input type="checkbox" id="rodape" style="width:20px; height: 20px; accent-color: #fff; cursor: pointer;">
-                    <label for="rodape" style="margin:0; cursor:pointer; color: #ffffff !important; font-size: 0.8rem; font-weight: 700;">Incluir Rodapé Premium 7cm Branco (R$ 17,90m)</label>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="rodape">
+                    <label for="rodape">Incluir Rodapé Premium 7cm (R$ 17,90m)</label>
                 </div>
 
-                <button class="btn-calc" onclick="calcular()">Calcular Projeto</button>
+                <button class="btn-calc" onclick="calcular()">Calcular Agora</button>
             </div>
         </div>
     </section>
 
+    <section class="features">
+        <div class="container">
+            <h2>POR QUE <span style="color: var(--primary);">NOVAS DÈCOR</span>?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-gem"></i>
+                    <h3>Acabamento Premium</h3>
+                    <p>Mão de obra treinada para entregar o padrão de luxo que seu imóvel merece.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantia Blindada</h3>
+                    <p>Segurança total desde a escolha do material até o último detalhe da instalação.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instalação Ágil</h3>
+                    <p>Sua casa renovada sem bagunça, com rapidez e organização absoluta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-text">
+                © 2026. desenvolvido por pixel studio & legado performance
+            </div>
+        </div>
+    </footer>
+
     <div class="modal-overlay" id="modalResult">
         <div class="modal-content">
-            <h2 style="letter-spacing: 2px; font-size: 1.2rem;">VALOR ESTIMADO</h2>
+            <h2 style="font-size: 1.1rem; color: var(--primary);">INVESTIMENTO ESTIMADO</h2>
             <div class="price-display">
                 <div class="total-value" id="valorFinal">R$ 0,00</div>
             </div>
-            <div style="text-align: left; margin-bottom: 25px; font-weight: 700; color: #888; font-size: 0.9rem;">
-                <p style="margin-bottom: 8px;"><i class="fas fa-check"></i> <span id="pisoNome" style="color:#fff"></span></p>
-                <p><i class="fas fa-check"></i> Rodapé: <span id="statusRodape" style="color:#fff"></span></p>
+            <div style="text-align: left; margin-bottom: 25px; font-size: 0.9rem; color: #888;">
+                <p style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--primary);"></i> <span id="pisoNome" style="color:#fff"></span></p>
+                <p><i class="fas fa-check" style="color: var(--primary);"></i> Rodapé: <span id="statusRodape" style="color:#fff"></span></p>
             </div>
             <a href="#" id="linkZap" class="btn-action" target="_blank">
                 Confirmar no WhatsApp <i class="fab fa-whatsapp"></i>
             </a>
-            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:25px; cursor:pointer; font-weight:900; text-transform:uppercase; font-size: 0.8rem;">Voltar</button>
+            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:25px; cursor:pointer; font-weight:800; text-transform:uppercase; font-size: 0.75rem;">Voltar ao Início</button>
         </div>
     </div>
 
@@ -166,9 +218,11 @@
             const precoPiso = parseFloat(selectPiso.value);
             const modeloTexto = selectPiso.options[selectPiso.selectedIndex].text.split('(')[0];
             const temRodape = document.getElementById('rodape').checked;
+            const pisoAtual = document.getElementById('pisoAtual').value;
+            const nivel = document.getElementById('nivelamento').value;
             
             if (!m2 || m2 <= 0) {
-                alert("Por favor, informe a metragem.");
+                alert("Por favor, informe a metragem da área.");
                 return;
             }
 
@@ -185,11 +239,14 @@
             document.getElementById('pisoNome').innerText = modeloTexto;
             document.getElementById('statusRodape').innerText = infoRodape;
 
-            const msg = `Olá Novas Dècor! Simulação realizada:\n` +
+            const msg = `Olá Novas Dècor! Fiz uma simulação de orçamento:\n\n` +
                         `- Área: ${m2}m²\n` +
                         `- Piso: ${modeloTexto}\n` +
                         `- Rodapé: ${infoRodape}\n` +
-                        `- Estimativa: ${totalFormatado}`;
+                        `- Piso Atual: ${pisoAtual}\n` +
+                        `- Nivelamento: ${nivel}\n` +
+                        `- Estimativa: ${totalFormatado}\n\n` +
+                        `Gostaria de agendar uma visita técnica.`;
 
             document.getElementById('linkZap').href = `https://wa.me/5511967308598?text=${encodeURIComponent(msg)}`;
             document.getElementById('modalResult').style.display = 'flex';

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-       
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Open Sans', sans-serif; background-color: #000; color: #fff; line-height: 1.6; font-weight: 600; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
@@ -20,10 +19,8 @@
             --accent: #25D366; 
         }
 
-        
         header { background: #000; padding: 20px 0; border-bottom: 3px solid var(--primary); position: fixed; width: 100%; top: 0; z-index: 1000; }
         header .flex { display: flex; justify-content: space-between; align-items: center; }
-        
         .logo { display: flex; align-items: center; gap: 15px; font-size: 1.4rem; color: #fff; }
         .logo img { max-height: 55px; width: auto; border-radius: 50%; border: 2px solid #fff; }
 
@@ -33,7 +30,6 @@
             text-transform: uppercase; transition: 0.3s;
         }
 
-        
         .hero { 
             background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('fundo.jpg'); 
             background-size: cover; background-position: center; 
@@ -44,46 +40,37 @@
         .hero h1 span { background: #fff; color: #000; padding: 0 10px; }
         .hero p { font-size: 1.1rem; color: #aaa; margin-bottom: 40px; font-weight: 700; text-transform: uppercase; }
 
-        
         .calculator-box {
             background: var(--bg-card); padding: 40px; border-radius: 8px;
             box-shadow: 0 0 40px rgba(255,255,255,0.1);
-            max-width: 550px; margin: 0 auto; border: 2px solid #222;
+            max-width: 600px; width: 100%; margin: 0 auto; border: 2px solid #222;
         }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-weight: 800; margin-bottom: 10px; font-size: 0.8rem; color: #fff; text-transform: uppercase; }
         .form-group input, .form-group select { 
-            width: 100%; padding: 16px; border: 2px solid #333; border-radius: 4px; 
+            width: 100%; padding: 14px; border: 2px solid #333; border-radius: 4px; 
             font-size: 1rem; font-weight: 700; background: #000; color: #fff; outline: none;
         }
         .form-group input:focus { border-color: #fff; }
         
         .btn-calc { 
             width: 100%; background: #fff; color: #000; 
-            border: none; padding: 22px; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; 
+            border: none; padding: 20px; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; 
             border-radius: 4px; cursor: pointer; transition: 0.3s;
         }
         .btn-calc:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(255,255,255,0.2); }
 
-        
-        .features { padding: 100px 0; text-align: center; background: #000; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin-top: 60px; }
-        .feature-item i { font-size: 3rem; color: #fff; margin-bottom: 25px; }
-        .feature-item h3 { margin-bottom: 15px; font-size: 1.3rem; letter-spacing: 0px; }
-        .feature-item p { font-size: 1rem; color: #777; font-weight: 600; padding: 0 20px; }
-
-        
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.98); z-index: 2000;
             display: none; justify-content: center; align-items: center;
         }
         .modal-content {
-            background: var(--bg-card); padding: 50px; border-radius: 8px;
-            max-width: 500px; width: 90%; text-align: center; border: 3px solid #fff;
+            background: var(--bg-card); padding: 40px; border-radius: 8px;
+            max-width: 500px; width: 95%; text-align: center; border: 3px solid #fff;
         }
-        .price-display { background: #fff; padding: 30px; border-radius: 4px; margin: 30px 0; }
-        .total-value { font-size: 3.5rem; font-weight: 900; color: #000; }
+        .price-display { background: #fff; padding: 25px; border-radius: 4px; margin: 25px 0; width: 100%; }
+        .total-value { font-size: 3rem; font-weight: 900; color: #000; word-break: break-all; line-height: 1; }
         
         .btn-action { 
             display: flex; justify-content: center; align-items: center; gap: 12px;
@@ -92,9 +79,15 @@
             font-size: 1.2rem; text-transform: uppercase;
         }
 
-        /* --- FOOTER --- */
         footer { background: #000; padding: 60px 0; border-top: 2px solid #111; text-align: center; }
         .footer-text { font-size: 0.8rem; color: #444; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .total-value { font-size: 2.2rem; }
+            .calculator-box { padding: 25px; }
+            .modal-content { padding: 30px 20px; }
+        }
     </style>
 </head>
 <body>
@@ -105,7 +98,7 @@
                 <img src="logo.png" alt="Novas Dècor"> 
                 <div style="font-weight: 900;">NOVAS <span style="color: #666;">DÈCOR</span></div>
             </div>
-            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header">Solicitar Atendimento</a>
+            <a href="https://wa.me/5511967308598" target="_blank" class="btn-zap-header">Atendimento</a>
         </div>
     </header>
 
@@ -131,26 +124,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Nivelamento</label>
-                    <select id="nivelamento">
-                        <option value="Nivelado">Está Nivelado</option>
-                        <option value="Precisa Nivelar">Precisa Nivelar</option>
-                        <option value="Não sei dizer">Não sei dizer</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Modelo de Piso (Material + Instalação)</label>
+                    <label>Modelo de Piso</label>
                     <select id="modelo">
                         <option value="98.90">Laminado Click Eucafloor (R$ 98,90/m²)</option>
                         <option value="109.90">Vinílico Absolut Residencial (R$ 109,90/m²)</option>
-                        <option value="119.90">Vinílico Sublime Residencial/Comercial (R$ 119,90/m²)</option>
+                        <option value="119.90">Vinílico Sublime (R$ 119,90/m²)</option>
                     </select>
                 </div>
 
-                <div class="form-group" style="display:flex; align-items:center; gap:15px; padding: 20px; background: #000; border-radius: 4px; border: 1px solid #333;">
-                    <input type="checkbox" id="rodape" style="width:25px; height: 25px; accent-color: #fff;">
-                    <label for="rodape" style="margin:0; cursor:pointer; color: #fff; font-size: 0.85rem;">Incluir Rodapé Premium 7cm Branco (R$ 17,90m)</label>
+                <div class="form-group" style="display:flex; align-items:center; gap:12px; padding: 15px; background: #0a0a0a; border-radius: 4px; border: 1px solid #333;">
+                    <input type="checkbox" id="rodape" style="width:20px; height: 20px; accent-color: #fff; cursor: pointer;">
+                    <label for="rodape" style="margin:0; cursor:pointer; color: #ffffff !important; font-size: 0.8rem; font-weight: 700;">Incluir Rodapé Premium 7cm Branco (R$ 17,90m)</label>
                 </div>
 
                 <button class="btn-calc" onclick="calcular()">Calcular Projeto</button>
@@ -158,51 +142,20 @@
         </div>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <h2 style="font-size: 2.5rem;">POR QUE <span style="border-bottom: 5px solid #fff;">NOVAS DÈCOR</span>?</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <i class="fas fa-check-double"></i>
-                    <h3>Mão de Obra Expert</h3>
-                    <p>Instaladores treinados para garantir o acabamento de altíssimo padrão.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-halved"></i>
-                    <h3>Garantia Real</h3>
-                    <p>Segurança total do material até a entrega final da sua obra.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Prazo Curto</h3>
-                    <p>Sua casa renovada com agilidade, organização e limpeza absoluta.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-text">
-                © 2026. criado por legado performance digital
-            </div>
-        </div>
-    </footer>
-
     <div class="modal-overlay" id="modalResult">
         <div class="modal-content">
-            <h2 style="letter-spacing: 2px;">VALOR ESTIMADO</h2>
+            <h2 style="letter-spacing: 2px; font-size: 1.2rem;">VALOR ESTIMADO</h2>
             <div class="price-display">
                 <div class="total-value" id="valorFinal">R$ 0,00</div>
             </div>
-            <div style="text-align: left; margin-bottom: 30px; font-weight: 700; color: #888;">
-                <p style="margin-bottom: 10px;"><i class="fas fa-check"></i> <span id="pisoNome" style="color:#fff"></span></p>
+            <div style="text-align: left; margin-bottom: 25px; font-weight: 700; color: #888; font-size: 0.9rem;">
+                <p style="margin-bottom: 8px;"><i class="fas fa-check"></i> <span id="pisoNome" style="color:#fff"></span></p>
                 <p><i class="fas fa-check"></i> Rodapé: <span id="statusRodape" style="color:#fff"></span></p>
             </div>
             <a href="#" id="linkZap" class="btn-action" target="_blank">
                 Confirmar no WhatsApp <i class="fab fa-whatsapp"></i>
             </a>
-            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:30px; cursor:pointer; font-weight:900; text-transform:uppercase; letter-spacing: 2px;">Voltar</button>
+            <button onclick="document.getElementById('modalResult').style.display='none'" style="background:none; border:none; color:#444; margin-top:25px; cursor:pointer; font-weight:900; text-transform:uppercase; font-size: 0.8rem;">Voltar</button>
         </div>
     </div>
 
@@ -213,8 +166,6 @@
             const precoPiso = parseFloat(selectPiso.value);
             const modeloTexto = selectPiso.options[selectPiso.selectedIndex].text.split('(')[0];
             const temRodape = document.getElementById('rodape').checked;
-            const pisoAtual = document.getElementById('pisoAtual').value;
-            const nivel = document.getElementById('nivelamento').value;
             
             if (!m2 || m2 <= 0) {
                 alert("Por favor, informe a metragem.");
@@ -234,14 +185,11 @@
             document.getElementById('pisoNome').innerText = modeloTexto;
             document.getElementById('statusRodape').innerText = infoRodape;
 
-            const msg = `Olá Novas Dècor! Fiz uma simulação:\n\n` +
-                        ` Área: ${m2}m²\n` +
-                        ` Piso: ${modeloTexto}\n` +
-                        ` Rodapé: ${infoRodape}\n` +
-                        ` Piso Atual: ${pisoAtual}\n` +
-                        ` Nivelamento: ${nivel}\n` +
-                        ` Estimativa: ${totalFormatado}\n\n` +
-                        `Vim do site e gostaria de agendar uma medição técnica.`;
+            const msg = `Olá Novas Dècor! Simulação realizada:\n` +
+                        `- Área: ${m2}m²\n` +
+                        `- Piso: ${modeloTexto}\n` +
+                        `- Rodapé: ${infoRodape}\n` +
+                        `- Estimativa: ${totalFormatado}`;
 
             document.getElementById('linkZap').href = `https://wa.me/5511967308598?text=${encodeURIComponent(msg)}`;
             document.getElementById('modalResult').style.display = 'flex';
